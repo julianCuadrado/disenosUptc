@@ -1,0 +1,141 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+html {
+  height: 100%;
+  margin: 0px;
+}
+
+body nav, #ingresar{
+  height: 100%;
+  background-image: url('../images/fondo.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#ingresar{
+	height: 600px;
+}
+
+.contenido {
+  padding-top: 5%;
+  height: 100%;
+  margin: 0px;
+}
+
+nav {
+  height: 64px;
+  padding: 0px 32px;
+  text-align: right;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.button {
+  font-weight: bold;
+  text-align: center;
+  margin: 0 8px;
+  padding: 0px 32px;
+  display: block;
+  height: 100%;
+  min-width: 9px;
+  font-size: 1em;
+  line-height: 64px;
+  border-width: 0px 1px;
+  transition: box-shadow .2s linear;
+}
+
+nav ul li, .radio>.button {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.button:link {
+  color: white;
+  text-decoration: none;
+}
+
+.button:visited {
+  color: white;
+}
+
+.button:hover {
+  box-shadow: none;
+  background-color: rgba(190, 122, 157, .5);
+}
+
+.contenido {}
+
+#login form {
+	padding: 20px;
+	border-radius: 5px;
+  margin-top: 100px;
+  margin-left: 20%;
+  background-color: white;
+  opacity: 1;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+
+.foot {
+  width: 100%;
+}
+
+footer ul {
+  color: black;
+  margin-top: 30px;
+  list-style: none;
+}
+
+#presentacion{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.left li {
+  float: left;
+  margin-right: 13px;
+}
+
+.left li a {
+  color: #2cc6db;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.left li a:hover {
+  text-decoration: underline;
+}
+
+.right li {
+  float: right;
+}
+
+.right li a {
+  margin-right: 13px;
+  margin-left: 13px;
+  color: #2cc6db;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.right li a:hover {
+  text-decoration: underline;
+}
+
+.carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }

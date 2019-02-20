@@ -1,0 +1,46 @@
+* {
+  font-family: 'Raleway', sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  height: 100%;
+  margin: 0px;
+}
+
+#header{
+    margin:auto;
+    width: 500px;
+    text-align: center;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+.nav li a{
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav li a:hover{
+    background-color: red;
+}
+
+.nav > li{
+    float: left;
+}
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav li:hover > ul{
+    display: block;
+}
