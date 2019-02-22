@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class AdministradorEmpresa implements Serializable{
     private String nombreEmpresa;
     private String correo;
     private String contrasenia;
-    @OneToMany(mappedBy = "administradorEmpresa")
+    @OneToMany(mappedBy = "administradorEmpresa", fetch = FetchType.EAGER)
     private List<Proyecto> proyectos;
 
     public int getId() {

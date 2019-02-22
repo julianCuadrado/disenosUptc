@@ -6,15 +6,11 @@
 package co.edu.uptc.disenosUptc.servicios;
 
 import co.edu.uptc.disenosUptc.entities.AdministradorEmpresa;
-import co.edu.uptc.disenosUptc.entities.Proyecto;
 import co.edu.uptc.disenosUptc.logica.AdministradorEmpresaLogica;
 import java.util.HashMap;
-import java.util.List;
 import javax.ejb.EJB;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
 
 /**
  *
@@ -33,9 +29,9 @@ public class ServicioAdministradorEmpresa {
     
     @POST
     @Path("/atenticarse")
-    public HashMap getProyectos(HashMap d) {
-        HashMap<String, Integer> w = new HashMap<>();
-        w.put("mensaje", administradorEmpresaLogica.getProyectos((String) d.get("correo"), (String) d.get("contrasenia")));
+    public HashMap iniciarSesion(HashMap d) {
+        HashMap<String, AdministradorEmpresa> w = new HashMap<>();
+        w.put("administrador", administradorEmpresaLogica.iniciarSesion((String) d.get("correo"), (String) d.get("contrasenia")));
         return w;
     }
 }

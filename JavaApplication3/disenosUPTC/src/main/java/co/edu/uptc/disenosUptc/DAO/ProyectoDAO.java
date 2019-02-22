@@ -22,6 +22,7 @@ public class ProyectoDAO {
     private EntityManager em;
 
     public List<Proyecto> getProyectos(int id) {
+        System.out.println(em.createQuery("Select p from Proyecto p where p.administradorEmpresa.id="+ id).getResultList());
         return em.createQuery("Select p from Proyecto p where p.administradorEmpresa.id="+ id).getResultList();
     }
 }

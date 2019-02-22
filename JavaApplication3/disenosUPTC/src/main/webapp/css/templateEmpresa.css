@@ -10,9 +10,11 @@ html {
 }
 
 #header{
-    margin:auto;
-    width: 500px;
-    text-align: center;
+  width: 100%;
+  height: 64px;
+padding: 0px 32px;
+text-align: right;
+border-bottom: 1px rgb(233, 233, 233) solid;
 }
 
 ul, ol{
@@ -20,27 +22,64 @@ ul, ol{
 }
 
 .nav li a{
-    background-color: #000;
-    color: #fff;
+    color: rgb(118, 118, 118);
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 0px;
+    text-align: right;
     display: block;
 }
 
-.nav li a:hover{
-    background-color: red;
+.nav{
+  display: block;
+}
+
+.nav li a{
+  font-weight: bold;
+  text-align: right;
+  margin: 0px;
+  padding: 0px 32px;
+  display: block;
+  height: 100%;
+  min-width: 9px;
+  font-size: 1em;
+  width: max-content;
+  line-height: 64px;
+  border-width: 0px 1px;
+  transition: box-shadow .2s linear;
 }
 
 .nav > li{
-    float: left;
+    float: right;
 }
 
 .nav li ul {
     display: none;
+    background-color: white;
     position: absolute;
-    min-width: 140px;
+    margin-right: 5px;
+}
+
+.nav li:hover{
+    background-color: rgb(210, 210, 210);
 }
 
 .nav li:hover > ul{
     display: block;
+    background-color: white;
+}
+
+.nav li ul li a:hover{
+  border-bottom: 1px rgb(233, 233, 233) solid;
+}
+
+#cuadro{
+    margin-top: 10px;
+}
+
+#fila{
+    margin-top: 40px;
+}
+
+#titulo{
+    margin-top: 30px;
 }

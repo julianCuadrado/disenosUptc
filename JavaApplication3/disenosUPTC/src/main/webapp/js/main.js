@@ -24,20 +24,19 @@ angular.module('home', []).controller('Controller', function($http, $scope) {
         }
     };
     
+    $scope.admin = {};
+    
     $scope.ingresar = function (){
         $http.post("./webresources/ServicioAdministradorEmpresa/atenticarse",{'correo':$scope.usuario.correo , 'contrasenia':$scope.usuario.contrasenia},{})
-                .success(function(data, status, header, config){
-                       if(data.mensaje === 1){
-                           alert("Error datos erroneos");
-                       }else{
-                           alert("Acceso permitido");
-                           window.location.replace("./views/empresa.html");
-                       }
-                }).error(function (data, status, header, config){
+                .then(function(response) {
+                    if(response.data.administrador === null){
+                        alert("Error datos erroneos");
+            }else{
+                localStorage.setItem('Admin', JSON.stringify(response.data.administrador));
+                location.href = "./views/empresa.html";
+                $scope.admin = JSON.parse(localStorage.getItem('Admin')).correo;
+            }
+        }, function error(response){
         });
-    };
-    
-    $scope.listarProyectos = function (){
-        
     };
 });

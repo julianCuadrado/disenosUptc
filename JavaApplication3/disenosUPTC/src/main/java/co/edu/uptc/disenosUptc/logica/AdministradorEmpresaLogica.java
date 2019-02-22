@@ -24,7 +24,7 @@ public class AdministradorEmpresaLogica {
         administradorEmpresaDAO.agregarAdministradorEmpresa(administradorEmpresa);
     }
 
-    public int getProyectos(String correo, String contrasenia) {
-        return administradorEmpresaDAO.getProyectos(correo, contrasenia);
+    public AdministradorEmpresa iniciarSesion(String correo, String contrasenia) {
+        return administradorEmpresaDAO.iniciarSesion(correo, contrasenia);
     }
 }

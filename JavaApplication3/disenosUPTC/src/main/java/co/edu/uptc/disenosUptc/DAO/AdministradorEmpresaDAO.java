@@ -26,13 +26,15 @@ public class AdministradorEmpresaDAO {
         em.persist(administradorEmpresa);
     }
 
-    public int getProyectos(String correo, String contrasenia) {
+    public AdministradorEmpresa iniciarSesion(String correo, String contrasenia) {
         String consulta ="Select a from AdministradorEmpresa a where a.correo = '"+correo+"' and a.contrasenia = '"+ contrasenia+"'";
         List<AdministradorEmpresa> administradorEmpresa =em.createQuery(consulta).getResultList();
-        if(administradorEmpresa.size() == 0){
-            return 1;
+        if(administradorEmpresa.isEmpty()){
+            return null;
         }else{
-            return 2;
+            AdministradorEmpresa s = administradorEmpresa.get(0);
+            s.setProyectos(null);
+            return s;
         }
     }
 }
