@@ -7,6 +7,7 @@ package co.edu.uptc.disenosUptc.logica;
 
 import co.edu.uptc.disenosUptc.DAO.AdministradorEmpresaDAO;
 import co.edu.uptc.disenosUptc.entities.AdministradorEmpresa;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 

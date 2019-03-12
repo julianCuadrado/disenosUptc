@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="listar">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Proyectos En curso</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/templateProyecto.css">
+    </head>
+    <body ng-controller="controllerListaProyecto as crt">
+        <div id="header">
+            <ul class="nav">
+                <li><a href="">Sobre nosotros</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+            </ul>
+        </div>
+        <div id="div2">
+            <div >
+                <div class="container-fluid mx-3 mt-3" ng-repeat="lista in listaProyectos1">
+                    <h3>{{lista.name}}</h3>
+                    <div class="row flex-row flex-sm-nowrap pre-scrollable pb-2">
+                        <div class="col-sm-4 col-md-3" ng-repeat="etiqueta in lista.list">
+                            <div class="card card-block card-primary card-inverse" id="cuadro1" style="width:18rem">
+                                <a href=""  data-toggle="modal" data-target="#myModal" ng-click="saveInfo(etiqueta.id, lista.name, etiqueta.name)">
+                                    <h4 class="pl-2">{{etiqueta.name}}</h4>
+                                </a>
+                                <p class="card-text px-2"> {{etiqueta.descrip}}</p>
+                                <div class="card-body">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" ng-click="obtenerId(etiqueta.id)">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{nombreEmpresa}}: {{nombreProyecto}}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" >
+                        <div class="pre-scrollable">
+                            <div ng-repeat="fotos in listaFotos" class="mb-1">
+                                <img src="{{fotos.rutaModificada}}" alt="Xdxdxd" class="img-fluid img-thumbnail" >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar fotografia</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label >Nombre fotografo</label>
+                            <input type="text" minlength="2" class="form-control" ng-model="fotografia.nombresFotografo">
+                        </div>
+                        <div class="form-group">
+                            <label >Apellidos fotografo</label>
+                            <input type="text" minlength="2" class="form-control" ng-model="fotografia.apellidosFotografo">
+                        </div>
+                        <div class="form-group">
+                            <label >Correo</label>
+                            <input type="email" minlength="2" class="form-control" ng-model="fotografia.correo">
+                        </div>
+                        <div class="form-group">
+                            <label >Precio Solicitado</label>
+                            <input type="Number" step="0.1" minlength="2" class="form-control" ng-model="fotografia.precioSolicitado">
+                        </div>
+                        <input id="fotografia" type="file" class="input-file" accept="image/png,image/jpeg" ng-model="fotografia.dd">
+                        <div id="kartik-file-errors"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="enviarImg()">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../js/lib/jquery-3.2.1.slim.min.js"></script>
+        <script type="text/javascript" src="../js/lib/popper.min.js"></script>
+        <script type="text/javascript" src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="../js/controllerListaProyecto.js"></script>
+    </body>
+</html>
+

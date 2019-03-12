@@ -8,11 +8,11 @@ angular.module('home', []).controller('Controller', function($http, $scope) {
         if($scope.administrador.nombreEmpresa && $scope.administrador.correo && $scope.administrador.contrasenia
                 && $scope.confirmacion){
             if($scope.administrador.contrasenia === $scope.confirmacion){
-                $scope.cerrar = "modal";
                 $http.post("./webresources/ServicioAdministradorEmpresa",  JSON.stringify($scope.administrador), {})
                         .success(function(data, status, header, config){
                             alert("Datos guardados");
-                    $scope.cerrar = "";
+                      $('#myModal').modal('hide');
+                    $scope.administrador = {};
                 }).error(function (data, status, header, config){
                     alert('Error ' + status);
                 });

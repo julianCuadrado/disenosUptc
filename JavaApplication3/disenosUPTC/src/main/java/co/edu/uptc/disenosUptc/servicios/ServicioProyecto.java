@@ -9,8 +9,10 @@ import co.edu.uptc.disenosUptc.entities.Proyecto;
 import co.edu.uptc.disenosUptc.logica.ProyectoLogica;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
@@ -27,5 +29,28 @@ public class ServicioProyecto {
     @GET
     public List<Proyecto> getProyectos(@QueryParam("id") int id){
         return proyectoLogica.getProyectos(id);
+    }
+    
+    @GET
+    @Path("/all")
+    public List<Proyecto> getAllProyectos(){
+        return proyectoLogica.getAllProyectos();
+    }
+    
+    @POST
+    public void guardarProyecto(Proyecto proyecto){
+        proyectoLogica.guardarProyecto(proyecto);
+    }
+    
+    @DELETE
+    @Path("/remove")
+    public void removerProyecto(@QueryParam("id") int id){
+        proyectoLogica.removerProyecto(id);
+    }
+    
+    @PUT
+    @Path("/edit")
+    public void editarProyecto(Proyecto proyecto){
+        proyectoLogica.editarProyecto(proyecto);
     }
 }

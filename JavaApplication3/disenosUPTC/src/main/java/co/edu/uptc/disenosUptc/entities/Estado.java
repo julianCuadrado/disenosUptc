@@ -11,4 +11,5 @@ package co.edu.uptc.disenosUptc.entities;
  */
 public enum Estado {
     
+    EN_PROCESO, DISPONIBLE;
 }

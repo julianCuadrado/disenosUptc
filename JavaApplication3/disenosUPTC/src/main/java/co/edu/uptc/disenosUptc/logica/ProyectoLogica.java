@@ -24,4 +24,20 @@ public class ProyectoLogica {
     public List<Proyecto> getProyectos(int id) {
         return proyectoDAO.getProyectos(id);
     }
+
+    public void guardarProyecto(Proyecto proyecto) {
+        proyectoDAO.guardarProyecto(proyecto);
+    }
+
+    public void removerProyecto(int id) {
+        proyectoDAO.removerProyecto(id);
+    }
+
+    public void editarProyecto(Proyecto proyecto) {
+        proyectoDAO.editarProyecto(proyecto);
+    }
+
+    public List<Proyecto> getAllProyectos() {
+        return proyectoDAO.getAllProyectos();
+    }
 }

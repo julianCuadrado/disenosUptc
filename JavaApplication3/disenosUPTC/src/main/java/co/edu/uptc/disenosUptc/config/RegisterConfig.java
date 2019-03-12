@@ -26,5 +26,6 @@ public class RegisterConfig extends Application{
         resources.add(co.edu.uptc.disenosUptc.servicios.ServicioAdministradorEmpresa.class);
         resources.add(co.edu.uptc.disenosUptc.servicios.ServicioFotografia.class);
         resources.add(co.edu.uptc.disenosUptc.servicios.ServicioProyecto.class);
+        resources.add(co.edu.uptc.disenosUptc.servicios.ServicioUsuario.class);
     }
 }

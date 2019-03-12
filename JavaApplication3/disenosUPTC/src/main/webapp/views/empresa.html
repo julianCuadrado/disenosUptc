@@ -6,13 +6,13 @@
         <title>Empresa</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/templateEmpresa.css">
-        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
     </head>
     
     <body ng-controller="ControllerEmpresa as ctrl">
         <div id="header">
             <ul class="nav">
-                <li><a href="">{{admin.nombreEmpresa}}</a>
+                <li><a href="" id="empresa">{{admin.nombreEmpresa}}</a>
                     <ul>
                         <li><a href="">Ver perfil</a></li>
                         <li><a href="" ng-click="cerrarSesion()">Cerrar sesion</a></li>
@@ -21,7 +21,7 @@
                 <li><a href="">Sobre nosotros</a></li>
                 <li><a href="">Proyectos</a>
                     <ul>
-                        <li><a href="" data-toggle="modal" data-target="#myModal">Crear proyecto</a></li>
+                        <li><a href="" ng-click="crear()">Crear proyecto</a></li>
                     </ul>
                 </li>
             </ul>
@@ -34,17 +34,22 @@
             </div>
             <div class="row" id="fila">
                 <div class="col-lg-3" ng-repeat="row in listaProyectos track by $index">
-                 
+                    
                     <div id="cuadro" class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{row.nombre}}</h5>
-                            <p class="card-text">{{row.descripcion}}</p>
+                            <p class="card-text" id="texto">{{row.descripcion}}</p>
                             <p class="card-text">Valor estimado: ${{row.valorEstimado}}</p>
                             <div class="row">
-                                <div class="col-md-1"></div>
-                                <button type="button" class="col-md-4 btn btn-primary">Editar</button>
-                                <div class="col-md-1"></div>
-                                <button type="button" class="col-md-4 btn btn-primary">Eliminar</button>
+                                <div class="col-lg-3">
+                                    <button type="button" style="padding: 6px 20px" class="btn btn-primary" ng-click="ver(row)">Ver</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" class="btn btn-primary" ng-click="editar(row)">Editar</button>
+                                </div>
+                                <div class="col-lg-4">
+                                    <button type="button" class="btn btn-primary" ng-click="eliminarProyecto(row)">Remover</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -62,18 +67,18 @@
                         <form class="">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1">
+                                <input type="text" minlength="2" class="form-control" id="exampleInputEmail1" ng-model="proyecto.nombre">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Descripcion</label>
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" minlength="81" maxlength="135" ng-model="proyecto.descripcion"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Valor estimado a pagar</label>
-                                <input type="number" class="form-control" id="exampleInputPassword1">
+                                <input type="number" min="0" class="form-control" id="exampleInputPassword1" ng-model="proyecto.valorEstimado">
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-danger">Registrar</button>
+                                <button type="submit" class="btn btn-danger" ng-click="agregarProyecto()">Registrar</button>
                             </div>
                         </form>
                     </div>
@@ -87,5 +92,6 @@
         <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="../js/lib/angular.min.js"></script>
         <script type="text/javascript" src="../js/controllerEmpresa.js"></script>
+        
     </body>
 </html>

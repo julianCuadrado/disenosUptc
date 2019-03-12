@@ -5,6 +5,8 @@
  */
 package co.edu.uptc.disenosUptc.DAO;
 
+import co.edu.uptc.disenosUptc.entities.AdministradorEmpresa;
+import co.edu.uptc.disenosUptc.entities.Fotografia;
 import co.edu.uptc.disenosUptc.entities.Proyecto;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -22,7 +24,27 @@ public class ProyectoDAO {
     private EntityManager em;
 
     public List<Proyecto> getProyectos(int id) {
-        System.out.println(em.createQuery("Select p from Proyecto p where p.administradorEmpresa.id="+ id).getResultList());
-        return em.createQuery("Select p from Proyecto p where p.administradorEmpresa.id="+ id).getResultList();
+        List<Proyecto> li = em.createQuery("Select p from Proyecto p where p.administradorEmpresa.id="+ id).getResultList();
+        for (int i = 0; i < li.size(); i++) {
+            li.get(i).setFotografias(null);
+        }
+        return li;
+    }
+
+    public void guardarProyecto(Proyecto proyecto) {
+        em.persist(proyecto);
+    }
+
+    public void removerProyecto(int id) {
+        em.createQuery("delete from Proyecto p where p.id = " + id).executeUpdate();
+    }
+
+    public void editarProyecto(Proyecto proyecto) {
+        em.merge(proyecto);
+    }
+
+    public List<Proyecto> getAllProyectos() {
+        List<Proyecto> listP = em.createQuery("Select p from Proyecto p").getResultList();
+        return listP;
     }
 }

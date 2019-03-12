@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Fotos</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/bootstrap-combined.min.css">
+        <link rel="stylesheet" href="../css/templateProyecto.css">
+        <!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
+    </head>
+    <body>
+        <div id="div1">
+            <div ng-controller="ControllerProyecto as ctrl">
+                <div id="header">
+                    <ul class="nav">
+                        <li><a href="" id="empresa">{{admin.nombreEmpresa}}</a>
+                            <ul>
+                                <li><a href="">Ver perfil</a></li>
+                                <li><a href="" ng-click="cerrarSesion()">Cerrar sesion</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Sobre nosotros</a></li>
+                        <li><a href="">Proyectos</a>
+                            <ul>
+                                <li><a href="" onclick="window.location.href = './empresa.html'">Ver Proyectos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container-fluid">
+                    <div class="row" id="titulo">
+                        <div class="col-lg-8">
+                            <h1>Proyecto: {{proyecto.nombre}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div2">
+            <div ng-controller="TodoController as crt">
+                <div class="container-fluid">
+                    <h4>{{listaFotografias.length}} fotografias</h4>
+                    <div class="row" id="fila">
+                        <div class="col-lg-3" ng-repeat="foto in filteredFotografias">
+                            <div class="card" id="cuadro1" style="width:18rem">
+                                <a href="">
+                                    <img class="card-img-top" src="{{foto.rutaModificada}}" alt="Card image" style="width:100%">
+                                </a>
+                                <div class="card-body">
+                                    <p class="card-text">email: {{foto.correo}}</p>
+                                    <p class="card-text">Nombres: {{foto.nombresFotografo}}</p>
+                                    <p class="card-text">Apellidos: {{foto.apellidosFotografo}}</p>
+                                    <p class="card-text">Fecha: {{foto.fechaCreacion}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-pagination="" data-num-pages="numPages()" 
+                         data-current-page="currentPage" data-max-size="maxSize"  
+                         data-boundary-links="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../js/lib/jquery-3.2.1.slim.min.js"></script>
+        <script type="text/javascript" src="../js/lib/popper.min.js"></script>
+        <script type="text/javascript" src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="../js/lib/ui-bootstrap-tpls-0.3.0.min.js"></script>
+        <script type="text/javascript" src="../js/controllerProyecto.js"></script>
+    </body>
+</html>

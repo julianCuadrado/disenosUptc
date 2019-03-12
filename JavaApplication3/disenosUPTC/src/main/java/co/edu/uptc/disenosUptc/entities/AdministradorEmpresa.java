@@ -8,6 +8,7 @@ package co.edu.uptc.disenosUptc.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,9 @@ public class AdministradorEmpresa implements Serializable{
     @OneToMany(mappedBy = "administradorEmpresa", fetch = FetchType.EAGER)
     private List<Proyecto> proyectos;
 
+    public AdministradorEmpresa() {
+    }
+    
     public int getId() {
         return id;
     }
@@ -70,7 +74,9 @@ public class AdministradorEmpresa implements Serializable{
     public void setProyectos(List<Proyecto> proyectos) {
         this.proyectos = proyectos;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "AdministradorEmpresa{" + "nombreEmpresa=" + nombreEmpresa + ", proyectos=" + proyectos.size() + '}';
+    }
 }

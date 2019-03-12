@@ -8,7 +8,9 @@ package co.edu.uptc.disenosUptc.servicios;
 import co.edu.uptc.disenosUptc.entities.AdministradorEmpresa;
 import co.edu.uptc.disenosUptc.logica.AdministradorEmpresaLogica;
 import java.util.HashMap;
+import java.util.List;
 import javax.ejb.EJB;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 

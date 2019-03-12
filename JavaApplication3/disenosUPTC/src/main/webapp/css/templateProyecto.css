@@ -1,0 +1,105 @@
+* {
+  font-family: 'Raleway', sans-serif;
+  padding: 0px;
+  margin: 0px;
+  color: rgb(118, 118, 118);
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+
+#header{
+  width: 100%;
+  height: 64px;
+padding: 0px 32px;
+text-align: right;
+border-bottom: 1px rgb(233, 233, 233) solid;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+.nav li a{
+    color: rgb(118, 118, 118);
+    text-decoration: none;
+    padding: 10px 0px;
+    text-align: right;
+    display: block;
+    font-size: 1em;
+}
+
+.nav{
+  display: block;
+}
+
+.nav li a{
+  font-weight: bold;
+  text-align: right;
+  margin: 0px;
+  padding: 0px 32px;
+  display: block;
+  height: 100%;
+  min-width: 9px;
+  font-size: 1.1em;
+  width: max-content;
+  line-height: 64px;
+  border-width: 0px 1px;
+  transition: box-shadow .2s linear;
+}
+
+.nav > li{
+    float: right;
+}
+
+.nav li ul {
+    display: none;
+    background-color: white;
+    position: absolute;
+    margin-right: 5px;
+}
+
+.nav li:hover{
+    background-color: rgb(210, 210, 210);
+}
+
+.nav li:hover > ul{
+    display: block;
+    background-color: white;
+}
+
+.nav li ul li a:hover{
+  border-bottom: 1px rgb(233, 233, 233) solid;
+}
+
+#cuadro1{
+    margin-top: 30px;
+}
+
+#fila{
+    padding-left: 30px;
+}
+
+.pagination ul > .disabled > span, .pagination ul > .disabled > a, .pagination ul > .disabled > a:hover, .pagination ul > .disabled > a:focus {
+    cursor: no-drop;
+}
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+    color: white;
+}
+
+.pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span {
+    background-color: rgb(118, 118, 118);
+    color: white;
+}
+
+#empresa{
+    min-width: 164px;
+}
+
+.pre-scrollable {
+    max-height: 500px;
+}

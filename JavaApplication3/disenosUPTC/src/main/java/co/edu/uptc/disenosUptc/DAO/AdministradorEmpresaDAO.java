@@ -7,6 +7,7 @@ package co.edu.uptc.disenosUptc.DAO;
 
 import co.edu.uptc.disenosUptc.entities.AdministradorEmpresa;
 import co.edu.uptc.disenosUptc.entities.Proyecto;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -23,17 +24,20 @@ public class AdministradorEmpresaDAO {
     private EntityManager em;
 
     public void agregarAdministradorEmpresa(AdministradorEmpresa administradorEmpresa) {
-        em.persist(administradorEmpresa);
+        AdministradorEmpresa a = administradorEmpresa;
+        a.setContrasenia(utilitis.Utilidades.encriptar(a.getContrasenia()));
+        em.persist(a);
     }
 
     public AdministradorEmpresa iniciarSesion(String correo, String contrasenia) {
-        String consulta ="Select a from AdministradorEmpresa a where a.correo = '"+correo+"' and a.contrasenia = '"+ contrasenia+"'";
+        String consulta ="Select a from AdministradorEmpresa a where a.correo = '"+correo+"' and a.contrasenia = '"+ utilitis.Utilidades.encriptar(contrasenia)+"'";
         List<AdministradorEmpresa> administradorEmpresa =em.createQuery(consulta).getResultList();
         if(administradorEmpresa.isEmpty()){
             return null;
         }else{
             AdministradorEmpresa s = administradorEmpresa.get(0);
-            s.setProyectos(null);
+            List<Proyecto> x = new ArrayList<>();
+            s.setProyectos(x);
             return s;
         }
     }

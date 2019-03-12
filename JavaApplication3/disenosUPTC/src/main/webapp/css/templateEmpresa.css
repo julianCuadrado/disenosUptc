@@ -76,10 +76,31 @@ ul, ol{
     margin-top: 10px;
 }
 
+#cuadro:hover{
+   border:#f89406 solid 1px;
+   transform:scale(1.06);
+            -ms-transform:scale(1.06); 
+            -moz-transform:scale(1.06);
+            -webkit-transform:scale(1.06);
+            -o-transform:scale(1.06);
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+    transition: 500ms ease;
+}
+
+#texto{
+    height: 104px;
+}
+
 #fila{
     margin-top: 40px;
 }
 
 #titulo{
     margin-top: 30px;
+}
+
+#empresa{
+    min-width: 141px;
 }
