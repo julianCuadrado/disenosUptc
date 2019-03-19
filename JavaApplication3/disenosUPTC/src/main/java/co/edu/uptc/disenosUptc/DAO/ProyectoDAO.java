@@ -25,9 +25,6 @@ public class ProyectoDAO {
 
     public List<Proyecto> getProyectos(int id) {
         List<Proyecto> li = em.createQuery("Select p from Proyecto p where p.administradorEmpresa.id="+ id).getResultList();
-        for (int i = 0; i < li.size(); i++) {
-            li.get(i).setFotografias(null);
-        }
         return li;
     }
 
@@ -40,7 +37,10 @@ public class ProyectoDAO {
     }
 
     public void editarProyecto(Proyecto proyecto) {
-        em.merge(proyecto);
+        Proyecto p = em.find(Proyecto.class, proyecto.getId());
+        p.setDescripcion(proyecto.getDescripcion());
+        p.setNombre(proyecto.getNombre());
+        p.setValorEstimado(proyecto.getValorEstimado());
     }
 
     public List<Proyecto> getAllProyectos() {

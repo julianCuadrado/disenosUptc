@@ -78,7 +78,8 @@
                             <label >Precio Solicitado</label>
                             <input type="Number" step="0.1" minlength="2" class="form-control" ng-model="fotografia.precioSolicitado">
                         </div>
-                        <input id="fotografia" type="file" class="input-file" accept="image/png,image/jpeg" ng-model="fotografia.dd">
+                        <img id="foto"  width="200" height="200" style="display: none">
+                        <input id="fotografia" onchange="document.getElementById('foto').src=window.URL.createObjectURL(this.files[0])" type="file" accept="image/png,image/jpeg">
                         <div id="kartik-file-errors"></div>
                     </div>
                     <div class="modal-footer">

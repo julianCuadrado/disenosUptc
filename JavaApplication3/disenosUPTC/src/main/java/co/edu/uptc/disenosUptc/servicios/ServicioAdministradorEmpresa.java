@@ -13,6 +13,7 @@ import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -32,8 +33,19 @@ public class ServicioAdministradorEmpresa {
     @POST
     @Path("/atenticarse")
     public HashMap iniciarSesion(HashMap d) {
-        HashMap<String, AdministradorEmpresa> w = new HashMap<>();
-        w.put("administrador", administradorEmpresaLogica.iniciarSesion((String) d.get("correo"), (String) d.get("contrasenia")));
-        return w;
+        HashMap<String, Object> w = new HashMap<>();
+        AdministradorEmpresa a = administradorEmpresaLogica.iniciarSesion((String) d.get("correo"), (String) d.get("contrasenia"));
+        AdministradorEmpresa s = new AdministradorEmpresa();
+        if(a != null){
+            s.setContrasenia(a.getContrasenia());
+            s.setCorreo(a.getCorreo());
+            s.setId(a.getId());
+            s.setNombreEmpresa(a.getNombreEmpresa());
+            w.put("administrador", s);
+            return w;
+        }else{
+            w.put("administrador", a);
+            return w;
+        }
     }
 }

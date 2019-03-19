@@ -31,4 +31,14 @@ public class FotografiaDAO {
         query.setParameter("idP", idProyecto);
         return query.getResultList();
     }
+    
+     public List<Fotografia> getFotografiasEstado() {
+        Query query = em.createQuery("Select f from Fotografia f where f.estado= :est order by f.fechaCreacion desc");
+        query.setParameter("est", Estado.EN_PROCESO);
+        return query.getResultList();
+    }
+
+    public List<Fotografia> getAllFotografias() {
+        return em.createQuery("Select f from Fotografia f order by f.fechaCreacion desc").getResultList();
+    }
 }

@@ -48,7 +48,6 @@ public class ServicioUsuario {
             List<Proyecto> proyectos = admin.getProyectos();
             for (Proyecto p : proyectos) {
                 etiqueta.addInfo(new InfoEtiqueta(p.getId(), p.getNombre(), p.getDescripcion()));
-                //p=null;//analizar esto
             }
             salida.add(etiqueta);
         }
@@ -58,11 +57,21 @@ public class ServicioUsuario {
     @GET
     @Path("/consultafotos")
     public List<Fotografia> getListaFotos(@QueryParam("id_proyecto") int id){
-        List<Fotografia> aux = usuarioLogica.getFotografias(id);
-        for (Fotografia f : aux) {
-            f.setProyecto(null);
+        List<Fotografia> lista = usuarioLogica.getFotografias(id);
+       List<Fotografia> temp = new ArrayList<>();
+        for (int i = 0; i < lista.size(); i++) {
+            Fotografia f = new Fotografia();
+            f.setApellidosFotografo(lista.get(i).getApellidosFotografo());
+            f.setCorreo(lista.get(i).getCorreo());
+            f.setFechaCreacion(lista.get(i).getFechaCreacion());
+            f.setId(lista.get(i).getId());
+            f.setNombresFotografo(lista.get(i).getNombresFotografo());
+            f.setPrecioSolicitado(lista.get(i).getPrecioSolicitado());
+            f.setRutaModificada(lista.get(i).getRutaModificada());
+            f.setRutaOriginal(lista.get(i).getRutaOriginal());
+            temp.add(f);
         }
-        return aux;
+        return temp;
     }
     
     @POST

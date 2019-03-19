@@ -23,18 +23,26 @@ todos.controller('TodoController', function($http, $scope) {
     ,$scope.maxSize = 5;
     $scope.listaFotografias = [];
 
+    $scope.mostrarImagen = function (src){
+        $scope.src = src;
+        $('#myModal').modal('show');
+    };
     
     $scope.listarFotografias = function() {
         $http.get("../webresources/ServicioFotografia?id="+$scope.proyecto.id,{})
                 .then(function(response) {
                     $scope.listaFotografias = response.data;
-            console.log($scope.listaFotografias);
             $scope.init();
         }, function error(response){
             console.log(response);
         }); 
     };
     $scope.listarFotografias(); 
+    
+    $scope.tratar = function(fecha){
+        var date = fecha.split("T");
+        return date[0]+ " "+ date[1].substring(0,date[1].length-7);
+    };
     
     $scope.numPages = function () {
         return Math.ceil($scope.listaFotografias.length / $scope.numPerPage);
@@ -47,9 +55,9 @@ todos.controller('TodoController', function($http, $scope) {
     });
     
     $scope.init = function (){
-            var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-            , end = begin + $scope.numPerPage;
-            $scope.filteredFotografias = $scope.listaFotografias.slice(begin, end);
+        var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+        , end = begin + $scope.numPerPage;
+        $scope.filteredFotografias = $scope.listaFotografias.slice(begin, end);
     };
 });
 

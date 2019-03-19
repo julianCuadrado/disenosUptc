@@ -35,6 +35,7 @@ public class UsuarioDAO {
     }
 
     public void agregarFotografia(Fotografia f, int idProyecto) {
+        System.out.println(idProyecto + " -----------------");
         Proyecto p = em.find(Proyecto.class, idProyecto);
         f.setProyecto(p);
         em.persist(f);

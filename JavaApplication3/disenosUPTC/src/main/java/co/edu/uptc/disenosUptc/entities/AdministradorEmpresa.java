@@ -34,7 +34,7 @@ public class AdministradorEmpresa implements Serializable{
 
     public AdministradorEmpresa() {
     }
-    
+
     public int getId() {
         return id;
     }

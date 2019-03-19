@@ -35,6 +35,9 @@ public class Proyecto implements Serializable{
     @OneToMany(mappedBy = "proyecto", cascade = CascadeType.PERSIST)
     private List<Fotografia> fotografias;
 
+    public Proyecto() {
+    }
+
     public int getId() {
         return id;
     }

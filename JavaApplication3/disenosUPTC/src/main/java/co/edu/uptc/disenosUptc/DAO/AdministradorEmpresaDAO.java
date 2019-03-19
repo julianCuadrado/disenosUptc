@@ -35,10 +35,7 @@ public class AdministradorEmpresaDAO {
         if(administradorEmpresa.isEmpty()){
             return null;
         }else{
-            AdministradorEmpresa s = administradorEmpresa.get(0);
-            List<Proyecto> x = new ArrayList<>();
-            s.setProyectos(x);
-            return s;
+            return administradorEmpresa.get(0);
         }
     }
 }

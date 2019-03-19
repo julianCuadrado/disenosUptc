@@ -24,6 +24,22 @@ angular.module('home', []).controller('Controller', function($http, $scope) {
         }
     };
     
+    $scope.listarFotos = function(){
+        $http.get("./webresources/ServicioFotografia/todas",{})
+                .then(function(response) {
+                    $scope.listaFotos = response.data;
+                    console.log($scope.listaFotos);
+        }, function error(response){
+            console.log(response);
+        }); 
+    };
+    
+    $scope.listarFotos();
+    
+    $scope.pintar = function (ruta){
+        return ruta.substring(1);
+    };
+    
     $scope.admin = {};
     
     $scope.ingresar = function (){

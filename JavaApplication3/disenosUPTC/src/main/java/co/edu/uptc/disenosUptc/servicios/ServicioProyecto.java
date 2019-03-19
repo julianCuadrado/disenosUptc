@@ -7,6 +7,7 @@ package co.edu.uptc.disenosUptc.servicios;
 
 import co.edu.uptc.disenosUptc.entities.Proyecto;
 import co.edu.uptc.disenosUptc.logica.ProyectoLogica;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.DELETE;
@@ -28,7 +29,17 @@ public class ServicioProyecto {
     
     @GET
     public List<Proyecto> getProyectos(@QueryParam("id") int id){
-        return proyectoLogica.getProyectos(id);
+        List<Proyecto> p = proyectoLogica.getProyectos(id);
+        List<Proyecto> temp = new ArrayList<>();
+        for (int i = 0; i < p.size(); i++) {
+            Proyecto ps = new Proyecto();
+            ps.setId(p.get(i).getId());
+            ps.setDescripcion(p.get(i).getDescripcion());
+            ps.setNombre(p.get(i).getNombre());
+            ps.setValorEstimado(p.get(i).getValorEstimado());
+            temp.add(ps);
+        }
+        return temp;
     }
     
     @GET

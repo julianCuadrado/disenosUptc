@@ -4,8 +4,8 @@
     <head>
         <meta charset="utf-8">
         <title>Fotos</title>
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/bootstrap-combined.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/templateProyecto.css">
         <!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
     </head>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="container-fluid">
                     <div class="row" id="titulo">
-                        <div class="col-lg-8">
+                        <div class="col-lg-5">
                             <h1>Proyecto: {{proyecto.nombre}}</h1>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                     <p class="card-text">email: {{foto.correo}}</p>
                                     <p class="card-text">Nombres: {{foto.nombresFotografo}}</p>
                                     <p class="card-text">Apellidos: {{foto.apellidosFotografo}}</p>
-                                    <p class="card-text">Fecha: {{foto.fechaCreacion}}</p>
+                                    <p class="card-text">Fecha: {{tratar(foto.fechaCreacion)}}</p>
                                 </div>
                             </div>
                         </div>
